@@ -1,0 +1,20 @@
+<h1>編輯貓咪</h1>
+<% if @cat.errors.any? %>
+<ul>
+  <% @cat.errors.full_messages.each do |msg| %>
+  <li><%= msg %></li>
+  <% end %>
+</ul>
+<% end %> <%= form_for(@cat) do |c| %>
+<div>
+  <%= c.label :title, "貓咪名稱" %> <%= c.text_field :title %>
+</div>
+
+<div>
+  <%= c.label :description, "貓咪說明" %> <%= c.text_area :description %>
+</div>
+
+<div>
+  <%= c.label :publish_date, "建立日期" %> <%= c.date_field :publish_date %>
+</div>
+<%= c.submit "送出" %> <% end %>

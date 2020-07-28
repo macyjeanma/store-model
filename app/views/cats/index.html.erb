@@ -1,0 +1,12 @@
+<h1>貓咪</h1>
+
+<%= link_to "新增貓咪", new_cat_path %>
+<ul>
+  <% @cat.each do |cat| %>
+    <li>
+      <%= link_to cat.title, cat_path(cat) %>
+      <%= link_to "編輯", edit_cat_path(cat) %>
+      <%= link_to "刪除", cat_path(cat.id), method: 'delete', data: { confirm: "確認刪除#{cat.title}？" } %>
+    </li>
+  <% end %>
+</ul>
